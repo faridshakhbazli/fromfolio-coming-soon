@@ -12,6 +12,11 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        ttHovesThinItalic: ["var(--font-tt-hoves-thin-italic)"],
+        ttHovesThin: ["var(--font-tt-hoves-thin)"],
+        ttHovesNormal: ["var(--font-tt-hoves-normal)"],
+      },
     },
   },
   plugins: [],
