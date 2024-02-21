@@ -21,6 +21,7 @@ export const metadata = {
   // description: "FormFolio Application",
 };
 
+
 export default function RootLayout({ children }) {
   return (
     <html
