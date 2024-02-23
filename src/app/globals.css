@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+::selection {
+  background-color: #000;
+  color: #beff6c;
+}
+
+@layer utilities {
+  .pattern {
+    width: 100%;
+    height: 100%;
+    min-height: 577px;
+    /* height: 577px; */
+    background-image: url("../../public/bg_pattern.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  @media (max-width: 1400px) {
+    .pattern {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  @media (max-width: 992px) {
+    .pattern {
+      background-size: 100%;
+      min-height: 540px;
+    }
+  }
+  @media (max-width: 768px) {
+    .pattern {
+      min-height: 500px;
+    }
+  }
+}
