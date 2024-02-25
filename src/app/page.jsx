@@ -14,6 +14,7 @@ export default function Home() {
 
     return () => clearTimeout(timer);
   }, [status]);
+  
   return (
     <main className="relative">
       <div className="max-[1200px]:px-[5%] bg-white"></div>
