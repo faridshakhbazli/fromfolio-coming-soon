@@ -1,13 +1,14 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { generalSchema } from "@/schemas/generalSchema";
+import emailjs from "@emailjs/browser";
 
 export const defaultValues = {
   email: "",
 };
-const Form = () => {
+const Form = ({ setStatus }) => {
   const {
     register,
     handleSubmit,
@@ -19,9 +20,23 @@ const Form = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
     if (!errors.email) {
-      reset(defaultValues);
+      emailjs
+        .send(
+          "service_wnj7n9j",
+          "template_ha91g3o",
+          {
+            to_name: "Fromfolio",
+            form_email: data?.email,
+            to_email: "fromfolio@gmail.com",
+            message: data?.email,
+          },
+          "navnFO2aaAW1xoYku"
+        )
+        .then(() => {
+          setStatus(true);
+          reset(defaultValues);
+        });
     }
   };
   return (
@@ -36,8 +51,9 @@ const Form = () => {
             required
             {...register("email")}
             type="email"
+            name="email"
             placeholder="Please enter your e-mail adress"
-            className="border border-[#A5A8AB] rounded-[24px] px-[16px] py-[9.7px] w-[400px] max-[768px]:w-full text-[1.12em] leading-normal font-ttHovesThin"
+            className="border border-[#A5A8AB] rounded-[24px] px-[16px] py-[9.7px] w-[400px] text-[18px] max-[768px]:w-full max-[768px]:text-[14px] leading-normal font-ttHovesThin"
           />
           {errors.email && (
             <p className="text-[#ff0000] mx-[5px] mt-[5px] max-[768px]:text-[0.7em]">
@@ -47,7 +63,7 @@ const Form = () => {
         </div>
         <button
           onClick={handleSubmit(onSubmit)}
-          className="hover:text-[#BEFF6C] text-white text-center text-[1.12em] transition cursor-pointer font-[500] leading-[125%] bg-[#000] rounded-[24px] px-[8px] py-[12px] w-[176px] max-[768px]:w-full font-ttHovesNormal"
+          className="hover:text-[#BEFF6C] text-white text-center text-[20px] max-[768px]:text-[16px] transition cursor-pointer font-[500] leading-[125%] bg-[#000] rounded-[24px] px-[8px] py-[12px] w-[176px] max-[768px]:w-full font-ttHovesNormal"
         >
           Sign up
         </button>
