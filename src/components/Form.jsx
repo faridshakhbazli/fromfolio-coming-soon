@@ -1,13 +1,12 @@
-"use client";
+// Form.jsx
+
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { generalSchema } from "@/schemas/generalSchema";
 import emailjs from "@emailjs/browser";
+import { defaultValues } from "@/components/defaultValues"; // Eğer bu dosya yoksa, gerekli defaultValues'ı kendiniz tanımlamalısınız.
+import { generalSchema } from "@/schemas/generalSchema.client"; // client modülü içinde tanımlanmış olmalıdır
 
-export const defaultValues = {
-  email: "",
-};
 const Form = ({ setStatus }) => {
   const {
     register,
