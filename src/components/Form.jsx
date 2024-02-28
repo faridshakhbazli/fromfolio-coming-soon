@@ -8,6 +8,7 @@ import emailjs from "@emailjs/browser";
 export const defaultValues = {
   email: "",
 };
+
 const Form = ({ setStatus }) => {
   const {
     register,
@@ -39,6 +40,7 @@ const Form = ({ setStatus }) => {
         });
     }
   };
+
   return (
     <>
       <form
@@ -71,3 +73,5 @@ const Form = ({ setStatus }) => {
     </>
   );
 };
+
+export default Form;
