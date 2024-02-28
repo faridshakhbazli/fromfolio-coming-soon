@@ -1,9 +1,8 @@
-"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import logo from "../../public/formfolio.svg";
 import Form from "@/components/Form";
 import Notification from "@/components/Notification";
-import { useEffect, useState } from "react";
 
 export default function Home() {
   const [status, setStatus] = useState(false);
