@@ -1,8 +1,5 @@
-// generalSchema.js
-const Yup = require("yup");
+import * as Yup from "yup";
 
-const generalSchema = Yup.object().shape({
-    email: Yup.string().required("Email is a required field")
+export const generalSchema = Yup.object().shape({
+    email: Yup.string().required("Email is a required field"),
 });
-
-module.exports = generalSchema;
