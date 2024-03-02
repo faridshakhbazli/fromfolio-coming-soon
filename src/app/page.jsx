@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import logo from "../../public/fromfolio.svg";
+import logo from "../../public/fromfolio1.svg";
 import Form from "@/components/Form";
 import Notification from "@/components/Notification";
 
