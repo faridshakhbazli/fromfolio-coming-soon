@@ -31,7 +31,13 @@ const Form = ({ setStatus }) => {
   });
 
   const onSubmit = (data) => {
-    if (!errors.email && allowedDomains.some(domain => data.email.endsWith(domain))) {
+    if (!errors.email) {
+      const enteredDomain = data.email.split('@')[1];
+      if (!allowedDomains.includes(enteredDomain)) {
+        alert("Please enter a valid email address from the allowed domains.");
+        return;
+      }
+
       emailjs
         .send(
           "service_wnj7n9j",
