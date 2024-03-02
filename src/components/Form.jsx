@@ -10,16 +10,13 @@ export const defaultValues = {
 };
 
 const allowedDomains = [
+  "gmail.com",
+  "mail.ru",
   "hotmail.com",
   "yahoo.com",
   "outlook.com",
   "icloud.com",
-  "aol.com",
-  "protonmail.com",
   "yandex.com",
-  "zoho.com",
-  "me.com",
-  "inbox.com",
 ];
 
 const Form = ({ setStatus }) => {
