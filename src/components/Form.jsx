@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { generalSchema } from "@/schemas/generalSchema";
@@ -30,11 +30,13 @@ const Form = ({ setStatus }) => {
     resolver: yupResolver(generalSchema),
   });
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   const onSubmit = (data) => {
     if (!errors.email) {
       const enteredDomain = data.email.split('@')[1];
       if (!allowedDomains.includes(enteredDomain)) {
-        alert("Please enter a valid email address from the allowed domains.");
+        setErrorMessage("Please enter a valid email address from the allowed domains.");
         return;
       }
 
@@ -53,6 +55,7 @@ const Form = ({ setStatus }) => {
         .then(() => {
           setStatus(true);
           reset(defaultValues);
+          setErrorMessage("");
         });
     }
   };
@@ -73,9 +76,9 @@ const Form = ({ setStatus }) => {
             placeholder="Please enter your e-mail address"
             className="border border-[#A5A8AB] rounded-[24px] px-[16px] py-[9.7px] w-[400px] text-[18px] max-[768px]:w-full max-[768px]:text-[14px] leading-normal font-ttHovesThin"
           />
-          {errors.email && (
-            <p className="text-[#ff0000] mx-[5px] mt-[5px] max-[768px]:text-[0.7em]">
-              {errors.email.message}
+          {errorMessage && (
+            <p className="text-[#ff0000] absolute top-[110%] mx-[5px] mt-[5px] max-[768px]:text-[0.7em]">
+              {errorMessage}
             </p>
           )}
         </div>
