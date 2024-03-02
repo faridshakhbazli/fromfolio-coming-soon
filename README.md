@@ -1,4 +1,3 @@
-Sure, here's a trimmed down version of the README with unnecessary sections removed:
 
 ---
 
