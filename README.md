@@ -1,7 +1,5 @@
 
----
-
-# fromfolio-coming-soon
+# Fromfolio Coming-soon
 
 ## Getting started
 
@@ -44,3 +42,4 @@ Use the built-in continuous integration in GitLab.
 - [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
 
 ---
+
