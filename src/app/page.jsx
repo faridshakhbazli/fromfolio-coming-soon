@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-// import logo from "../../public/fromfolio.svg";
-import logo2 from "../../public/fromfoliologo.png";
+import logo from "../../public/fromfolio.svg";
 import Form from "@/components/Form";
 import Notification from "@/components/Notification";
 
@@ -22,7 +21,7 @@ export default function Home() {
       <div className="flex justify-center">
         <Image
           className="pt-[70px] md:pt-[35px] w-[120px] min-[1400px]:w-[7.79%]"
-          src={logo2}
+          src={logo}
           alt="FromFolio Logo"
           priority
         />
