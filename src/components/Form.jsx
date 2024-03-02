@@ -9,6 +9,19 @@ export const defaultValues = {
   email: "",
 };
 
+const allowedDomains = [
+  "hotmail.com",
+  "yahoo.com",
+  "outlook.com",
+  "icloud.com",
+  "aol.com",
+  "protonmail.com",
+  "yandex.com",
+  "zoho.com",
+  "me.com",
+  "inbox.com",
+];
+
 const Form = ({ setStatus }) => {
   const {
     register,
@@ -51,7 +64,12 @@ const Form = ({ setStatus }) => {
         <div className="max-[768px]:w-full relative ">
           <input
             required
-            {...register("email")}
+            {...register("email", {
+              pattern: {
+                value: new RegExp(`^([a-zA-Z0-9._%+-]+)@(${allowedDomains.join('|')})$`),
+                message: "Please enter a valid email address from the allowed domains.",
+              },
+            })}
             type="email"
             name="email"
             placeholder="Please enter your e-mail adress"
@@ -64,7 +82,7 @@ const Form = ({ setStatus }) => {
           )}
         </div>
         <button
-          onClick={handleSubmit(onSubmit)}
+          type="submit"
           className="hover:text-[#BEFF6C] text-white text-center text-[20px] max-[768px]:text-[16px] transition cursor-pointer font-[500] leading-[125%] bg-[#000] rounded-[24px] px-[8px] py-[12px] w-[176px] max-[768px]:w-full font-ttHovesNormal"
         >
           Sign up
