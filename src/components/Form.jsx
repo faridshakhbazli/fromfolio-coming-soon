@@ -34,7 +34,7 @@ const Form = ({ setStatus }) => {
   });
 
   const onSubmit = (data) => {
-    if (!errors.email) {
+    if (!errors.email && allowedDomains.some(domain => data.email.endsWith(domain))) {
       emailjs
         .send(
           "service_wnj7n9j",
@@ -64,12 +64,7 @@ const Form = ({ setStatus }) => {
         <div className="max-[768px]:w-full relative ">
           <input
             required
-            {...register("email", {
-              pattern: {
-                value: /^[a-zA-Z0-9._%+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(?:hotmail\.com|yahoo\.com|outlook\.com|icloud\.com|aol\.com|protonmail\.com|yandex\.com|zoho\.com|me\.com|inbox\.com)$/,
-                message: "Please enter a valid email address from the allowed domains.",
-              },
-            })}
+            {...register("email")}
             type="email"
             name="email"
             placeholder="Please enter your e-mail address"
