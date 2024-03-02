@@ -66,13 +66,13 @@ const Form = ({ setStatus }) => {
             required
             {...register("email", {
               pattern: {
-                value: new RegExp(`^([a-zA-Z0-9._%+-]+)@(${allowedDomains.join('|')})$`),
+                value: /^[a-zA-Z0-9._%+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(?:hotmail\.com|yahoo\.com|outlook\.com|icloud\.com|aol\.com|protonmail\.com|yandex\.com|zoho\.com|me\.com|inbox\.com)$/,
                 message: "Please enter a valid email address from the allowed domains.",
               },
             })}
             type="email"
             name="email"
-            placeholder="Please enter your e-mail adress"
+            placeholder="Please enter your e-mail address"
             className="border border-[#A5A8AB] rounded-[24px] px-[16px] py-[9.7px] w-[400px] text-[18px] max-[768px]:w-full max-[768px]:text-[14px] leading-normal font-ttHovesThin"
           />
           {errors.email && (
