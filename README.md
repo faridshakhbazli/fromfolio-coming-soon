@@ -45,5 +45,3 @@ Use the built-in continuous integration in GitLab.
 - [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
 
 ---
-
-I've removed the "Editing this README" section and the template section at the bottom, as they are not directly related to the setup and usage of the project on GitLab. Let me know if you need further adjustments!
