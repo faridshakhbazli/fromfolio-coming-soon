@@ -1,5 +1,6 @@
 import localfont from "next/font/local";
 import "./globals.css";
+import Head from 'next/head';
 
 const ttHovesThinItalic = localfont({
   src: [{ path: "../../public/fonts/TT Hoves Thin Italic.otf" }],
@@ -28,6 +29,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${ttHovesThinItalic.variable} ${ttHovesThin.variable} ${ttHovesNormal.variable}`}
     >
+    <Head>
+			<link rel='icon' href='https://i.ibb.co/MM4Zr11/Logo48x48.png' />
+		</Head>
       <body>{children}</body>
     </html>
   );
