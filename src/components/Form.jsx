@@ -34,9 +34,11 @@ const Form = ({ setStatus }) => {
 
   const onSubmit = (data) => {
     if (!errors.email) {
-      const enteredDomain = data.email.split('@')[1];
+      const enteredDomain = data.email.split("@")[1];
       if (!allowedDomains.includes(enteredDomain)) {
-        setErrorMessage("Please enter a valid email address from the allowed domains.");
+        setErrorMessage(
+          "Please enter a valid email address from the allowed domains."
+        );
         return;
       }
 
@@ -65,7 +67,7 @@ const Form = ({ setStatus }) => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         action=""
-        className="flex max-[768px]:flex-col justify-center items-start gap-[24px] max-[768px]:gap-[10px] pt-[4%]"
+        className={`flex max-[768px]:flex-col justify-center items-start gap-[24px] max-[768px]:gap-[10px] ${errorMessage && 'max-[768px]:gap-[45px]'} pt-[4%]`}
       >
         <div className="max-[768px]:w-full relative ">
           <input
@@ -77,10 +79,9 @@ const Form = ({ setStatus }) => {
             className="border border-[#A5A8AB] rounded-[24px] px-[16px] py-[9.7px] w-[400px] text-[18px] max-[768px]:w-full max-[768px]:text-[14px] leading-normal font-ttHovesThin"
           />
           {errorMessage && (
-           <p className="text-red-500 absolute inset-y-[-42px] mx-1 mt-1 max-w-[768px] text-[0.7em]">
-           {errorMessage}
-          </p>
-
+            <p className="text-red-500 absolute mx-1 mt-1 max-w-[768px] text-[0.7em]">
+              {errorMessage}
+            </p>
           )}
         </div>
         <button

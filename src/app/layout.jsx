@@ -1,7 +1,6 @@
 import localfont from "next/font/local";
 import "./globals.css";
 
-
 const ttHovesThinItalic = localfont({
   src: [{ path: "../../public/fonts/TT Hoves Thin Italic.otf" }],
   variable: "--font-tt-hoves-thin-italic",
@@ -18,10 +17,12 @@ const ttHovesNormal = localfont({
 });
 
 export const metadata = {
-  // title: "From Folio",
-  // description: "FormFolio Application",
+  title: "FromFolio",
+  description: "FormFolio Application",
+  icons: {
+    icon: "https://i.ibb.co/rbrdhwx/f-logo-01.png",
+  },
 };
-
 
 export default function RootLayout({ children }) {
   return (
@@ -29,9 +30,6 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${ttHovesThinItalic.variable} ${ttHovesThin.variable} ${ttHovesNormal.variable}`}
     >
-    <Head>
-			<link rel='icon' href='https://i.ibb.co/rbrdhwx/f-logo-01.png' />
-		</Head>
       <body>{children}</body>
     </html>
   );
