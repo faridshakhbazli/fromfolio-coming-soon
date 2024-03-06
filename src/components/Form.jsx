@@ -77,9 +77,10 @@ const Form = ({ setStatus }) => {
             className="border border-[#A5A8AB] rounded-[24px] px-[16px] py-[9.7px] w-[400px] text-[18px] max-[768px]:w-full max-[768px]:text-[14px] leading-normal font-ttHovesThin"
           />
           {errorMessage && (
-            <p className="text-[#ff0000] absolute top-[110%] mx-[5px] mt-[5px] max-[768px]:text-[0.7em]">
-              {errorMessage}
-            </p>
+           <p className="text-red-500 absolute inset-y-[-42px] mx-1 mt-1 max-w-[768px] text-[0.7em]">
+           {errorMessage}
+          </p>
+
           )}
         </div>
         <button
